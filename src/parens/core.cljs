@@ -26,12 +26,12 @@
    {:alias-data {:routes routes}}))
 
 (defn main [el state]
-  (->> js/location.href
+  (->> js/location.pathname
        (router/url->location router/routes)
        (render-location el state router/routes)))
 
 (defn get-current-location []
-  (->> js/location.href
+  (->> js/location.pathname
        (router/url->location router/routes)))
 
 (defn route-click [e el state routes]
